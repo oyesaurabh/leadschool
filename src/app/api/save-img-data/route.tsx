@@ -26,7 +26,11 @@ export async function POST(req: NextRequest) {
     // Save the book
     bookService.saveBook({
       title: body.title.trim(),
-      author: body.author?.trim() || "",
+      author: typeof body.author === "string"
+          ? body.author.trim()
+          : Array.isArray(body.author)
+          ? body.author.join(", ").trim()
+          : "",
       grade: body.grade?.trim() || "",
       subject:
         typeof body.subject === "string"
