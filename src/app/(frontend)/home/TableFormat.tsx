@@ -1,5 +1,4 @@
 import { BookOpen } from "lucide-react";
-import Image from "next/image";
 import { useState } from "react";
 
 type Book = {
@@ -52,7 +51,7 @@ const BookRow = ({ book }: { book: Book }) => {
         <div className="h-20 w-16 overflow-hidden rounded bg-muted relative flex-shrink-0">
           {hasValidImage ? (
             <>
-              <Image
+              <img
                 src={
                   book?.cover_image?.startsWith("data:")
                     ? book?.cover_image

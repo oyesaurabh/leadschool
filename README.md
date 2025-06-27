@@ -1,216 +1,68 @@
-# ==================================
+# 📚 Book Inventory Builder
 
-# Book Inventory Builder - Environment Variables
+A web application for educators and librarians to digitize book collections using AI. Simply upload a photo of a book cover and let the app extract key details like title, author, grade, subject, and series — all powered by Vision LLM.
 
-# ==================================
+## 🚀 Features
 
-# Instructions:
+- 📸 Upload book cover images
 
-# 1. Copy this file to .env.local
+- 🧠 AI-powered detail extraction using Google Gemini Flash (Vision LLM)
 
-# 2. Fill in your actual values
+- ✏️ Manual edit of AI-suggested fields
 
-# 3. Never commit .env.local to version control
+- 📋 Inventory management (grid + list view, search, filter)
 
-# ==================================
+- ⚡ Built with Next.js, TailwindCSS, ShadCN, Aceternity UI, Zustand, SQLite
 
-# Google AI API Configuration
+## 🛠️ Setup
 
-# ==================================
+1. Clone the Repo
 
-# Get your API key from: https://makersuite.google.com/app/apikey
+   ```
+   git clone https://github.com/oyesaurabh/leadschool
 
-# Required for AI book detail extraction
 
-GOOGLE_AI_API_KEY=your_gemini_api_key_here
+   cd leadschool
+   ```
 
-# Alternative variable names (if using different AI providers)
+2. Install Dependencies
 
-# OPENAI_API_KEY=your_openai_key_here
+   ```
+   npm install
+   ```
 
-# ANTHROPIC_API_KEY=your_anthropic_key_here
+3. Run the App
 
-# ==================================
+   ```
+   npm run dev
+   App will be available at http://localhost:3000
+   ```
 
-# Database Configuration
+## 🖼️ Screenshots
 
-# ==================================
+![1](https://github.com/user-attachments/assets/252e0c84-f8ed-4e92-ac29-606699850d06)
+<br>
+![2](https://github.com/user-attachments/assets/023266fa-b302-46e6-97f0-b057fc1efaa8)
+<br>
+![3](https://github.com/user-attachments/assets/85c209f5-36a2-4603-9d43-937331b92b64)
+<br>
+![4](https://github.com/user-attachments/assets/fbef785d-15cc-4336-a1dc-16d357d063f2)
 
-# SQLite database file path (relative to project root)
+## 🧠 Tech Stack
 
-DATABASE_URL=file:./books.db
+- Frontend: Next.js, Tailwind, ShadCN UI, Aceternity UI
+- AI: Google Gemini Flash (Vision)
+- State: Zustand
+- Database: SQLite
 
-# Alternative database configurations:
+## 📌 Notes
 
-# PostgreSQL: postgresql://username:password@localhost:5432/book_inventory
+- No user authentication (single-user)
+- Optimized for desktop/tablet (responsive UI)
+- SQLite chosen for quick local development
 
-# MongoDB: mongodb://localhost:27017/book_inventory
+## ✅ Evaluation Focus
 
-# MongoDB Atlas: mongodb+srv://username:password@cluster.mongodb.net/book_inventory
-
-# ==================================
-
-# Next.js Configuration
-
-# ==================================
-
-# NextAuth secret (generate a random string)
-
-# You can generate one with: openssl rand -base64 32
-
-NEXTAUTH_SECRET=your-super-secret-jwt-secret-min-32-characters
-
-# Application URL (change for production)
-
-NEXTAUTH_URL=http://localhost:3000
-
-# For Vercel deployment, this will be automatically set
-
-# NEXTAUTH_URL=https://your-app-name.vercel.app
-
-# ==================================
-
-# Application Configuration
-
-# ==================================
-
-# Maximum file upload size (in bytes)
-
-# 10MB = 10485760 bytes
-
-MAX_FILE_SIZE=10485760
-
-# Allowed image file types (comma-separated)
-
-ALLOWED_FILE_TYPES=image/jpeg,image/jpg,image/png,image/webp
-
-# AI Processing timeout (in milliseconds)
-
-AI_TIMEOUT=30000
-
-# ==================================
-
-# Development Configuration
-
-# ==================================
-
-# Enable debug logging
-
-DEBUG=false
-
-# Database logging
-
-DATABASE_LOGGING=false
-
-# AI API logging (be careful with sensitive data)
-
-AI_API_LOGGING=false
-
-# ==================================
-
-# Vercel Deployment Configuration
-
-# ==================================
-
-# These are automatically set by Vercel, but can be overridden
-
-# VERCEL_URL=your-app-name.vercel.app
-
-# VERCEL_ENV=production
-
-# ==================================
-
-# Optional: Third-party Integrations
-
-# ==================================
-
-# Analytics (if you add Google Analytics)
-
-# NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
-
-# Error tracking (if you add Sentry)
-
-# SENTRY_DSN=your_sentry_dsn_here
-
-# Image optimization service (if using external service)
-
-# CLOUDINARY_URL=cloudinary://api_key:api_secret@cloud_name
-
-# ==================================
-
-# Security Configuration
-
-# ==================================
-
-# CORS origins (comma-separated)
-
-CORS_ORIGINS=http://localhost:3000,https://your-domain.com
-
-# API rate limiting
-
-RATE_LIMIT_MAX_REQUESTS=100
-RATE_LIMIT_WINDOW_MS=900000
-
-# ==================================
-
-# Performance Configuration
-
-# ==================================
-
-# Image compression quality (0-100)
-
-IMAGE_QUALITY=80
-
-# Database connection pool size
-
-DATABASE_POOL_SIZE=10
-
-# Cache TTL in seconds
-
-CACHE_TTL=3600
-
-# ==================================
-
-# Feature Flags (if implementing)
-
-# ==================================
-
-# Enable/disable features for A/B testing
-
-FEATURE_BULK_UPLOAD=true
-FEATURE_EXPORT_CSV=true
-FEATURE_BARCODE_SCANNING=false
-
-# ==================================
-
-# IMPORTANT NOTES:
-
-# ==================================
-
-# 1. This file contains sensitive information - never commit to git
-
-# 2. Use different values for development/staging/production
-
-# 3. Rotate secrets regularly in production
-
-# 4. Use Vercel environment variables for production deployment
-
-# 5. Test all configurations in development before deploying
-
-# ==================================
-
-# Quick Setup Checklist:
-
-# ==================================
-
-# ✅ 1. Get Gemini API key from Google AI Studio
-
-# ✅ 2. Copy this file to .env.local
-
-# ✅ 3. Replace placeholder values with real ones
-
-# ✅ 4. Test API connection with npm run dev
-
-# ✅ 5. Add environment variables to Vercel dashboard
-
-# ✅ 6. Deploy and test production build
+- Working AI-based book extraction
+- Thoughtful UX for educators/librarians
+- Clean code and project structure

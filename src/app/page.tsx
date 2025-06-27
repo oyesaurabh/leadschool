@@ -45,17 +45,28 @@ export default function Home() {
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     Transform Your School with Future-Ready Learning Solutions.
                     LEAD School System builds confidence in your students
-                    through Unmatched Curriculum & At-home Support For Your
-                    Students.
+                    through Unmatched Curriculum.
                   </p>
                 </div>
 
                 {/* API Input */}
                 <div className="space-y-4">
                   <div className="space-y-2">
-                    <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                    <div className="flex items-center justify-between gap-2">
                       API Key
-                    </label>
+                      <p className="text-xs text-muted-foreground">
+                        Don’t have an API key?{" "}
+                        <a
+                          href="https://ai.google.dev/gemini-api/docs/api-key"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary hover:underline"
+                        >
+                          Get it here
+                        </a>
+                        .
+                      </p>
+                    </div>
                     <Input
                       type="text"
                       value={api}

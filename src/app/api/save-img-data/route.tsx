@@ -28,7 +28,12 @@ export async function POST(req: NextRequest) {
       title: body.title.trim(),
       author: body.author?.trim() || "",
       grade: body.grade?.trim() || "",
-      subject: body.subject?.trim() || "",
+      subject:
+        typeof body.subject === "string"
+          ? body.subject.trim()
+          : Array.isArray(body.subject)
+          ? body.subject.join(", ").trim()
+          : "",
       series: body.series?.trim() || "",
       imageBase64: body.imageBase64,
     });
