@@ -16,6 +16,7 @@ import axios from "axios";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useBookStore } from "@/store/useBookStore";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 interface BookDetails {
   title: string;
@@ -228,7 +229,7 @@ export default function AddBookModal({ isOpen, onClose }: AddBookModalProps) {
             ) : (
               <div className="space-y-4">
                 <div className="relative">
-                  <img
+                  <Image
                     src={selectedImage}
                     alt="Selected book cover"
                     className="w-full max-w-md mx-auto rounded-lg shadow-md"
@@ -294,7 +295,7 @@ export default function AddBookModal({ isOpen, onClose }: AddBookModalProps) {
         {step === "edit" && (
           <div className="space-y-6">
             <div className="flex gap-4">
-              <img
+              <Image
                 src={selectedImage ?? ""}
                 alt="Book cover"
                 className="w-24 h-32 object-cover rounded-md shadow-sm"

@@ -11,6 +11,7 @@ import { useGridStore } from "@/store/useIsGridStore";
 
 import { Search, Grid3X3, List, Plus, Loader2 } from "lucide-react";
 import { useBookStore } from "@/store/useBookStore";
+import { Toaster, toast } from "sonner";
 import axios from "axios";
 
 export default function Navbar() {
@@ -31,12 +32,15 @@ export default function Navbar() {
       };
       fetchData();
     } catch (error) {
+      console.error("Error fetching books:", error);
+      toast.error("Failed to fetch books. Please try again.");
     } finally {
       setIsLoading(false);
     }
   };
   return (
     <>
+      <Toaster />
       <nav className="fixed top-0 left-0 right-0 bg-background border-b z-99">
         <div className="flex items-center justify-between px-2 py-3">
           <div className="items-center hidden md:block">

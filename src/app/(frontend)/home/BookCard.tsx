@@ -1,4 +1,5 @@
 import { BookOpen } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
 
 const BookCard = ({ book }: any) => {
@@ -14,7 +15,7 @@ const BookCard = ({ book }: any) => {
       <div className="aspect-[3/4] overflow-hidden rounded-md bg-muted">
         {hasValidImage ? (
           <div className="relative h-full w-full">
-            <img
+            <Image
               src={
                 book.cover_image.startsWith("data:")
                   ? book.cover_image

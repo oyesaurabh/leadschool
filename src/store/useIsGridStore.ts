@@ -6,7 +6,7 @@ type gridStore = {
   alterGrid: () => void;
 };
 
-export const useGridStore = create<gridStore>((set, get) => ({
+export const useGridStore = create<gridStore>((set) => ({
   isGrid: true,
   alterGrid: () =>
     set((state) => ({
